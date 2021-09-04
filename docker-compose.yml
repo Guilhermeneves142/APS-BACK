@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  database:
+    image: postgis/postgis
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: aps
+    ports:
+    - 1234:5432
