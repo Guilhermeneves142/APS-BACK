@@ -13,7 +13,7 @@ export class CreateStatus1630778310073 implements MigrationInterface {
                         isPrimary: true
                     },
                     {
-                        name: "name",
+                        name: "nome",
                         type: "varchar"
                     }
                 ]
