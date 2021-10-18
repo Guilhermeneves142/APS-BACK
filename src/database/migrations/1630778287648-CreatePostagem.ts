@@ -18,6 +18,10 @@ export class CreatePostagem1630778287648 implements MigrationInterface {
                     isNullable: true
                 },
                 {
+                    name: "titulo",
+                    type: "varchar"
+                },
+                {
                     name: "mensagem",
                     type: "varchar"
                 },

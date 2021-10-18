@@ -5,9 +5,11 @@ class AutoridadeController {
 
   async findAll(request: Request, response: Response) {
     try{
+
+    const nome = request.params?.nome; 
     const autoridadeService = new AutoridadeService();
 
-    const autoridades = await autoridadeService.findAll();
+    const autoridades = await autoridadeService.findAll(nome);
     return response.json(autoridades);
     }
     catch(error) {

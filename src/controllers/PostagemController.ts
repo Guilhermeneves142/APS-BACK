@@ -1,14 +1,14 @@
 import { Request, Response} from "express";
-import { AdministradorService } from "../services/AdministradorService";
 import { PostagemService } from "../services/PostagemService";
 
 class PostagemController {
 
   async findAll(request: Request, response: Response) {
     try{
+      const filter = request.params?.filter; 
     const postagemService = new PostagemService();
 
-    const postagens = await postagemService.findAll();
+    const postagens = await postagemService.findAll(filter);
     return response.json(postagens);
     }
     catch(error) {

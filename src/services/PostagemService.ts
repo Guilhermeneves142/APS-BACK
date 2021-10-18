@@ -4,10 +4,14 @@ import { PostagemRepository } from "../repositories/PostagemRepository";
 
 class PostagemService {
 
-  async findAll(){
+  async findAll(titulo?: string){
     const postagemRepository = getCustomRepository(PostagemRepository);
-    
-    const status = postagemRepository.find();
+
+    let status;
+    if(titulo )
+      status = postagemRepository.find({where: [{titulo}]})
+    else 
+      status = postagemRepository.find();
 
     return status;
   }

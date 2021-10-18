@@ -14,6 +14,8 @@ class Postagem {
   @Column()
   mensagem: string;
   @Column()
+  titulo: string;
+  @Column()
   comentario: string;
   @Column()
   endereco: string;

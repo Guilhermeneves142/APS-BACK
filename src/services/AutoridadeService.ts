@@ -4,12 +4,14 @@ import { AutoridadeRepository } from "../repositories/AutoridadeRepository";
 
 class AutoridadeService {
 
-  async findAll(){
+  async findAll(nome?: string){
     const autoridadeRepository = getCustomRepository(AutoridadeRepository);
-    
-    const status = autoridadeRepository.find();
-
-    return status;
+    if(nome){
+      return autoridadeRepository.find({where: [{nome}]});
+    }
+    else {
+      return autoridadeRepository.find();
+    }
   }
 
   async findById(id: string) {
