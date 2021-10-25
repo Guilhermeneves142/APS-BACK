@@ -21,8 +21,9 @@ export class CreateAdministrador1630778319899 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "data_criacao",
-                        type: "date"
+                        name: "data_criada",
+                        type: "timestamp",
+                        default: "now()"
                     }
                 ]
             }

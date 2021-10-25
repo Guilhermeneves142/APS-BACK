@@ -37,7 +37,7 @@ class PostagemController {
   async create(request: Request, response: Response) {
     try{
 
-      const {postagem} = request.body;
+      const postagem = request.body;
       const postagemService = new PostagemService();
 
       const newPostagem = await postagemService.create(postagem);

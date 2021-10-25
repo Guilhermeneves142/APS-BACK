@@ -14,7 +14,8 @@ export class CreateAutoridade1630778301783 implements MigrationInterface {
                     },
                     {
                         name: "login",
-                        type: "varchar"
+                        type: "varchar",
+                        isUnique: true
                     },
                     {
                         name: "senha",
@@ -30,7 +31,8 @@ export class CreateAutoridade1630778301783 implements MigrationInterface {
                     },
                     {
                         name: "data_criacao",
-                        type: "date"
+                        type: "timestamp",
+                        default: "now()"
                     },
                     {
                         name: "ativo",

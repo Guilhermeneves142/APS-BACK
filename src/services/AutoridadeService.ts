@@ -1,5 +1,5 @@
-import { getCustomRepository } from "typeorm";
-import { Postagem } from "../entities/Postagem";
+import { getCustomRepository, Like } from "typeorm";
+import { Autoridade } from "../entities/Autoridade";
 import { AutoridadeRepository } from "../repositories/AutoridadeRepository";
 
 class AutoridadeService {
@@ -7,7 +7,7 @@ class AutoridadeService {
   async findAll(nome?: string){
     const autoridadeRepository = getCustomRepository(AutoridadeRepository);
     if(nome){
-      return autoridadeRepository.find({where: [{nome}]});
+      return autoridadeRepository.find({where: [{nome: Like(`%${nome}%`)}]});
     }
     else {
       return autoridadeRepository.find();
@@ -22,12 +22,11 @@ class AutoridadeService {
     return status;
   }
 
-  async create(postagem: Postagem) {
+  async create(autoridade: Autoridade) {
     const autoridadeRepository = getCustomRepository(AutoridadeRepository);
 
-    const newPostagem = autoridadeRepository.create(postagem);
-
-    return autoridadeRepository.save(newPostagem);
+    const newAutoridade = autoridadeRepository.create(autoridade);
+    return autoridadeRepository.save(newAutoridade);
   }
 }
 

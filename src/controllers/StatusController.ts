@@ -1,14 +1,15 @@
 import { Request, Response} from "express";
 import { AdministradorService } from "../services/AdministradorService";
+import { StatusService } from "../services/StatusService";
 
 class StatusController {
 
   async findAll(request: Request, response: Response) {
     try{
-    const administradorService = new AdministradorService();
+    const statusService = new StatusService();
 
-    const administradores = await administradorService.findAll();
-    return response.json(administradores);
+    const status = await statusService.findAll();
+    return response.json(status);
     }
     catch(error) {
       return response.status(500).json({
@@ -20,10 +21,10 @@ class StatusController {
 
   async findById(request: Request, response: Response) {
     try{
-    const administradorService = new AdministradorService();
+    const statusService = new StatusService();
 
-    const administrador = await administradorService.findById(request.params.id);
-    return response.json(administrador);
+    const status = await statusService.findById(request.params.id);
+    return response.json(status);
     }
     catch(error) {
       return response.status(500).json({

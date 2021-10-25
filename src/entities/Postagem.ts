@@ -20,7 +20,7 @@ class Postagem {
   @Column()
   endereco: string;
   @Column({name: "data_criacao"})
-  dataCriacao: Date;
+  dataCriacao: string;
   @JoinColumn({ name: 'id_status'})
   @ManyToOne(() => Status, status => status.id)
   status: Status;

@@ -12,12 +12,12 @@ class Autoridade {
   senha: string;
   @Column()
   nome: string;
-  @Column()
+  @Column({name: "grau_autoridade"})
   grauAutoridade: string;
   @Column()
   ativo: boolean;
-  @Column({name: "data_criada"})
-  dataCriada: Date
+  @Column({name: "data_criacao"})
+  dataCriada: string
 
   constructor() {
     if(!this.id){

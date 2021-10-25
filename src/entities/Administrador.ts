@@ -11,7 +11,7 @@ class Administrador {
   @Column()
   senha: string;
   @Column({name: "data_criada"})
-  dataCriada: Date
+  dataCriada: string;
 
   constructor() {
     if(!this.id){

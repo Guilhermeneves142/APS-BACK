@@ -1,4 +1,4 @@
-import { getCustomRepository } from "typeorm";
+import { getCustomRepository, Like } from "typeorm";
 import { Postagem } from "../entities/Postagem";
 import { PostagemRepository } from "../repositories/PostagemRepository";
 
@@ -9,7 +9,7 @@ class PostagemService {
 
     let status;
     if(titulo )
-      status = postagemRepository.find({where: [{titulo}]})
+      status = postagemRepository.find({where: [{titulo: Like(`%${titulo}%`)}]})
     else 
       status = postagemRepository.find();
 

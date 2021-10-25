@@ -34,20 +34,20 @@ class AdministradorController {
   }
 
   async create(request: Request, response: Response) {
-    try{
+    // try{
 
-      const {administrador} = request.body;
+      const administrador = request.body;
       const administradorService = new AdministradorService();
 
       const newAdministrador = await administradorService.create(administrador);
       return response.json(newAdministrador);
-    }
-    catch(error) {
-      return response.status(500).json({
-        error: "internal server error",
-        status: 500
-      }) 
-    }
+    // }
+    // catch(error) {
+    //   return response.status(500).json({
+    //     error: "internal server error",
+    //     status: 500
+    //   }) 
+    // }
   }
 
 }

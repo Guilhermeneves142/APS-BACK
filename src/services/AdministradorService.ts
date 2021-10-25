@@ -1,6 +1,5 @@
 import { getCustomRepository } from "typeorm";
 import { Administrador } from "../entities/Administrador";
-import { Postagem } from "../entities/Postagem";
 import { AdministradorRepository } from "../repositories/AdministradorRepository";
 
 class AdministradorService {
@@ -22,10 +21,10 @@ class AdministradorService {
   }
 
   async create(administrador: Administrador) {
+
     const administradorRepository = getCustomRepository(AdministradorRepository);
 
     const newAdministrador = administradorRepository.create(administrador);
-
     return administradorRepository.save(newAdministrador);
   }
 }

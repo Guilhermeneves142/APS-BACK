@@ -15,6 +15,7 @@ class AuthenticateController {
       return response.json(token)
       }
     catch (error) {
+      console.error(error)
       return response.status(500).json({
         error: "internal server error",
         status: 500
@@ -37,6 +38,21 @@ class AuthenticateController {
       }) 
     }
     
+  }
+
+  async update(request: Request, response: Response) {
+
+    try {
+    const authenticateService = new AuthenticateService();
+    const usuario = await authenticateService.update(request.body);
+    return response.json(usuario);
+  } catch (error) {
+    console.error(error);
+    return response.status(500).json({
+      error: "internal server error",
+      status: 500
+    }) 
+  }
   }
 }
 

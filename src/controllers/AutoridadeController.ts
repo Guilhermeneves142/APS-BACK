@@ -37,14 +37,14 @@ class AutoridadeController {
 
   async create(request: Request, response: Response) {
     try{
-
-      const {autoridade} = request.body;
+      const autoridade = request.body;
       const autoridadeService = new AutoridadeService();
 
       const newAutoridade = await autoridadeService.create(autoridade);
       return response.json(newAutoridade);
     }
     catch(error) {
+      console.error(error);
       return response.status(500).json({
         error: "internal server error",
         status: 500
