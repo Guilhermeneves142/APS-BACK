@@ -23,18 +23,7 @@ class AuthenticateService {
     const passwordMatch = login.senha ==  usuario.senha;
     if (!passwordMatch) throw Error("user not found");
 
-    const token = sign(
-      {
-        usuario: usuario.id,
-        isAdmin
-      }, 
-        "69a80d081c6b251a81dab43a2bae95ee", 
-      {
-        expiresIn: "1d",
-        subject: usuario.id
-      }
-    )
-    return {token} ;
+    return usuario ;
   }
 
   async update(login: IAuthenticateRequest){

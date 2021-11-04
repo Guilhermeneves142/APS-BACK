@@ -30,18 +30,18 @@ router.post("/postagem",postagemController.create);
 router.get("/status/all",statusController.findAll);
 router.get("/status/:id",statusController.findById);
 
-router.use(ensureAuthenticate)
 //  PRECISA DE AUTENTICAÇÃOE
 router.get("/clarify",authenticateController.clarifyToken);
 
 router.get("/administrador/:id",administradorController.findById);
 
 router.get("/autoridade/find-nome/:nome",autoridadeController.findAll);
-router.get("/autoridade/:id",autoridadeController.findById);
+
+router.get("/autoridade/all",autoridadeController.findAll);
+router.get("/autoridade/find-by-id/:id",autoridadeController.findById);
 
 router.get("/administrador/all",administradorController.findAll);
 
-router.get("/autoridade/all",autoridadeController.findAll);
 
 
 export {router};

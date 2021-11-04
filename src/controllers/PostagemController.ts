@@ -44,6 +44,7 @@ class PostagemController {
       return response.json(newPostagem);
     }
     catch(error) {
+      console.error(error);
       return response.status(500).json({
         error: "internal server error",
         status: 500

@@ -5,6 +5,7 @@ import { AuthenticateService } from "../services/AuthenticateService";
 class AuthenticateController {
 
   async login(request: Request, response: Response){
+    console.log(request.body);
     const {login,senha} = request.body;
 
     const authenticateService = new AuthenticateService();

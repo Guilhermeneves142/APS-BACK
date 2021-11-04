@@ -27,7 +27,8 @@ export class CreatePostagem1630778287648 implements MigrationInterface {
                 },
                 {
                     name: "data_criacao",
-                    type: "varchar"
+                    type: "varchar",
+                    default: "now()"
                 },
                 {
                     name: "id_status",
